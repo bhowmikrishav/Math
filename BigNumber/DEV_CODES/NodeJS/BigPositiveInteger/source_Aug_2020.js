@@ -194,6 +194,49 @@ class BigPositiveInteger{
         return out;
 
     }
+
+    static div_1d(n1, n2){
+        if((typeof n1 != 'string')||(typeof n2 != 'number')||( n2 > 10)){
+            throw Error("Bad Input")
+        }
+        n1 += '0'
+
+        var carry = 0, res = [];
+        var i;
+        for(i=0; i<n1.length;i++){
+            carry*=10
+            const a10 = Math.floor( ( carry + Number(n1[i] || 0)) / n2)
+            carry = (( carry + Number(n1[i] || 0)) % n2)
+            res.push(a10)
+            console.log(carry, a10)
+        }
+        //res.pop()
+        return res.join('').substr(0,res.length-1).replace(/(0)*/,"");
+    }
+
+   //under development................................................................UNSAFE yet
+   //honestly I am stuck with this divide thing, feel free to help me
+    static div(n1, n2) {
+        if((typeof n1 != 'string')||(typeof n2 != 'string')){
+            throw Error("Bad Input")
+        }
+
+        if(n1.length<n2.length){
+            const t = n2; n2 = n1; n1 = t
+        }
+
+        n2 = n2.split('').reverse()
+        var res = new BigPositiveInteger('0')
+
+        for(var i=0; i<n2.length; i++){
+            const d10 = BigPositiveInteger.div_1d(n1, Number(n2[i])) + Array(i+1).join('0')
+            console.log(d10)
+            res = res.add(d10)
+        }
+
+        return res.string()
+    }
+    //////////////////////////////
 }
 
 
@@ -212,5 +255,11 @@ class BigPositiveInteger{
 
 //console.log(`Sub : ${BigPositiveInteger.substract('1992','1891')}`)
 //console.log(`Sum : ${BigPositiveInteger.add("9989","3121")}`)
-//console.log(`Mul 1D: ${BigPositiveInteger.mul_1d("123",8)}`)
-//console.log(`Mul: ${BigPositiveInteger.mul("9991180723087407234098230984092834098234989898981","98087234097230972039740972309723407")}`)
+//console.log(`Mul 1D : ${BigPositiveInteger.mul_1d("123",8)}`)
+
+//console.log(`Mul: ${BigPositiveInteger.mul("999118072308740723409823098409283409823498998230984098230948029384898981","9808723409723097203974090982098023984098230972304972309723407")}`)
+//console.log(`Div 1D : ${BigPositiveInteger.div_1d("87120709120928309009998723897230740923049823098230982340972307320847234087",9)}`)
+
+
+//under development....................................
+console.log(`Div : ${BigPositiveInteger.div("1024", "128")}`)
