@@ -1,4 +1,2 @@
 # Math
 Mathematical tools 
-
-[Link for Abhijit Sarkar](https://jovialp2p.azurewebsites.net/room/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTm9vYmVzUm9vbSIsInJvb21lciI6IjE1OTg1Mzg3ODU1MiIsInBhc3N3b3JkIjoibm9wYXNzd29yZCIsImlhdCI6MTU5ODUzODc4Nn0.Phm3YEXpbvuNniBa2yI3Xhy5e90bMuLF9fbamMB3exg)
